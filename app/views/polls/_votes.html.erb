@@ -1,4 +1,4 @@
-<% if user_signed_in? && Vote.where(user_id: current_user.id).where(poll_item_id: @poll.poll_items.pluck(:id)).count > 0 %>
+<% if user_signed_in? && Vote.where(user_id: current_user.id, poll_item_id: @poll_item.id).count > 0 %>
     <p>You have voted</p>
     <%= link_to "Unvote", poll_poll_item_vote_path(@poll, @poll_item), method: :delete %>
 <% else %>
